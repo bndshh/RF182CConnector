@@ -1,4 +1,6 @@
 
+//  Created by b_ndsh_h.
+
 #include "RF182CConnector.h"
 
 RF182CConnectorRef RF182CConnector::create(asio::io_service & io, string host, int32_t port)
