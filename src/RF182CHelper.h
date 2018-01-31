@@ -1,7 +1,4 @@
 
-//  Created by Jan Bundschuh.
-//  Copyright 2016-2017 TRIAD Berlin Projektgesellschaft mbH. All rights reserved.
-
 #pragma once
 
 #include "cinder/Xml.h"
@@ -23,13 +20,13 @@ public:
 	{
 		none, // Command not defined
 		comDevSetConfig, // Optional: RF182C umprojektieren		
-		reset, // RF182C und Reader eines Kanals zurücksetzen und parametrieren		     
+		reset, // RF182C und Reader eines Kanals zurÃ¼cksetzen und parametrieren		     
 		writeTagData, // Schreiben auf Adresse des Tags     		
 		readTagData, // Lesen von Adresse des Tags	
 		initializeTag, // Tag initialisieren		
 		getReaderStatus, // Status der angeschlossenen Reader		
 		setAnt, // Antenne Ein-Aus	
-		heartbeat, // Leitungsüberwachung	
+		heartbeat, // LeitungsÃ¼berwachung	
 		getTagStatus // Status des Tag
 	};
 
