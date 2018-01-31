@@ -1,4 +1,6 @@
 
+//  Created by b_ndsh_h.
+
 #include "RF182CError.h"
 
 RF182CErrorRef RF182CError::create(string errorCode)
