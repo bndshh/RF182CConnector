@@ -1,5 +1,5 @@
 
-//  Created by b_ndsh_h.
+// Created by b_ndsh_h
 
 #include "RF182CError.h"
 
@@ -25,7 +25,7 @@ string RF182CError::parse()
 	}
 	else if (mCode == "0001")
 	{
-		return "Anwesenheitsfehler: Der MDS ist aus dem Ãœbertragungsfenster des SLG gefahren. Der MOBY - Befehl wurde nur teilweise abgearbeitet. Lesebefehl: Es werden keine Daten an den Client geliefert. Schreibbefehl : Der MDS, der gerade das Feld verlassen hat, beinhaltet einen unvollstÃ¤ndigen Datensatz.";
+		return "Anwesenheitsfehler: Der MDS ist aus dem Übertragungsfenster des SLG gefahren. Der MOBY - Befehl wurde nur teilweise abgearbeitet. Lesebefehl: Es werden keine Daten an den Client geliefert. Schreibbefehl : Der MDS, der gerade das Feld verlassen hat, beinhaltet einen unvollständigen Datensatz.";
 	}
 	else if (mCode == "0002")
 	{
@@ -45,7 +45,7 @@ string RF182CError::parse()
 	}
 	else if (mCode == "0006")
 	{
-		return "FeldstÃ¶rung am SLG - Das SLG empfÃ¤ngt StÃ¶rimpulse aus der Umgebung.";
+		return "Feldstörung am SLG - Das SLG empfängt Störimpulse aus der Umgebung.";
 	}
 	else if (mCode == "0007")
 	{
@@ -61,7 +61,7 @@ string RF182CError::parse()
 	}
 	else if (mCode == "000A")
 	{
-		return "Nur bei Initialisierung: MDS kann den Initialisierungs-Befehl nicht durchfÃ¼hren - MDS ist defekt";
+		return "Nur bei Initialisierung: MDS kann den Initialisierungs-Befehl nicht durchführen - MDS ist defekt";
 	}
 	else if (mCode == "000B")
 	{
@@ -73,11 +73,11 @@ string RF182CError::parse()
 	}
 	else if (mCode == "000D")
 	{
-		return "Adressfehler - Der Adressbereich des MDS wird Ã¼berschritten.";
+		return "Adressfehler - Der Adressbereich des MDS wird überschritten.";
 	}
 	else if (mCode == "000E")
 	{
-		return "ECC-Fehler (nur mÃ¶glich, wenn ECC_mode = TRUE) Die Daten kÃ¶nnen nicht vom MDS gelesen werden.";
+		return "ECC-Fehler (nur möglich, wenn ECC_mode = TRUE) Die Daten können nicht vom MDS gelesen werden.";
 	}
 	else if (mCode == "000F")
 	{
@@ -85,7 +85,7 @@ string RF182CError::parse()
 	}
 	else if (mCode == "0011")
 	{
-		return "Kurzschluss oder Ãœberlastung der 24 V-AusgÃ¤nge (Fehlercode, Anwesenheit)";
+		return "Kurzschluss oder Überlastung der 24 V-Ausgänge (Fehlercode, Anwesenheit)";
 	}
 	else if (mCode == "0012")
 	{
@@ -93,7 +93,7 @@ string RF182CError::parse()
 	}
 	else if (mCode == "0013")
 	{
-		return "Es sind nicht genÃ¼gend Puffer im Kommunikationsmodul/SLG U fÃ¼r die Zwischenspeicherung des Befehls vorhanden.";
+		return "Es sind nicht genügend Puffer im Kommunikationsmodul/SLG U für die Zwischenspeicherung des Befehls vorhanden.";
 	}
 	else if (mCode == "0014")
 	{
@@ -117,7 +117,7 @@ string RF182CError::parse()
 	}
 	else if (mCode == "0019")
 	{
-		return "Vorheriger Befehl ist aktiv bzw. PufferÃ¼berlauf";
+		return "Vorheriger Befehl ist aktiv bzw. Pufferüberlauf";
 	}
 	else if (mCode == "001C")
 	{
@@ -125,7 +125,7 @@ string RF182CError::parse()
 	}
 	else if (mCode == "001D")
 	{
-		return "Es sind mehr MDS im Ãœbertragungsfenster, als das SLG gleichzeitig bearbeiten kann.";
+		return "Es sind mehr MDS im Übertragungsfenster, als das SLG gleichzeitig bearbeiten kann.";
 	}
 	else if (mCode == "001E")
 	{
@@ -157,15 +157,15 @@ string RF182CError::parse()
 	}
 	else if (mCode == "3322")
 	{
-		return "BufferÃ¼berlauf im Kommunikationsmodul";
+		return "Bufferüberlauf im Kommunikationsmodul";
 	}
 	else if (mCode == "3323")
 	{
-		return "BufferÃ¼berlauf des Notifikationbuffers";
+		return "Bufferüberlauf des Notifikationbuffers";
 	}
 	else if (mCode == "3324")
 	{
-		return "BufferÃ¼berlauf des Alarmbuffers";
+		return "Bufferüberlauf des Alarmbuffers";
 	}
 	else if (mCode == "3325")
 	{
@@ -177,7 +177,7 @@ string RF182CError::parse()
 	}
 	else if (mCode == "3417")
 	{
-		return "LÃ¤ngenfehler beim Empfang von Daten Ã¼ber die TCP/IP Verbindung.";
+		return "Längenfehler beim Empfang von Daten über die TCP/IP Verbindung.";
 	}
 	else if (mCode == "3421")
 	{
@@ -185,11 +185,11 @@ string RF182CError::parse()
 	}
 	else if (mCode == "3422")
 	{
-		return "Fehler beim Senden von Daten Ã¼ber die TCP/IP Verbindung";
+		return "Fehler beim Senden von Daten über die TCP/IP Verbindung";
 	}
 	else if (mCode == "3423")
 	{
-		return "Timeout beim Empfang von Daten Ã¼ber die TCP/IP Verbindung.";
+		return "Timeout beim Empfang von Daten über die TCP/IP Verbindung.";
 	}
 	else
 	{

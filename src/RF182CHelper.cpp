@@ -1,11 +1,9 @@
 
+// Created by b_ndsh_h
+
 #include "RF182CHelper.h"
 
 #include <iomanip>
-
-RF182CCommand::RF182CCommand()
-{
-}
 
 vector<RF182CCommand::Type> RF182CCommand::AllTypes()
 {
@@ -69,7 +67,7 @@ string RF182CCommand::mReaderStatus[7] =
 	"02", // = MOBY U(SLG - Diagnose I, Funktionsaufrufe)
 	"03", // = MOBY U(SLG - Diagnose II, Fehlermeldungen)
 	"04", // = MOBY U(SLG - Diagnose III, identifizierte MDS)
-	"05", // = MOBY U(SLG - Diagnose IV, KommunikationsgÃ¼te)
+	"05", // = MOBY U(SLG - Diagnose IV, Kommunikationsgüte)
 	"06", // = RF300 Reader - Diganose
 	"07", // = RF600 Reader - Diagnose
 };
@@ -79,13 +77,13 @@ RF182CCommandStr RF182CCommand::resetCommand(const bool &resetLED)
 	auto xml = create();
 	auto node = XmlTree(AllTypesString().at(Type::reset), "");
 
-	string param = "00";      // standby - Not used by RF300
-	param += "25";      // Param == 001 (000 == Keine ANW-Kontroll, 001 == keine MDS-Steuerung; ANW-Kontrolle Ã¼ber Firmware) 0 0101 (0101 == 5 -> RF300 Without Multitag)
-	param += resetLED ? "02" : "00";      // 00 == ERR-LED am SLG nicht zurÃ¼cksetzen || 02 == ERR-LED am SLG zurÃ¼cksetzen
-	param += "00";      // distance_limiting - Not used by RF300
-	param += "0001";    // Number of Allowed Tags == No Mulittag 
-	param += "00";      // field_ON_control  - Not used by RF300 (00hex)
-	param += "01";      // field_ON_time // herstellerunabhÃ¤ngiger tag
+	string param = "00";				// standby - Not used by RF300
+	param += "25";						// Param == 001 (000 == Keine ANW-Kontroll, 001 == keine MDS-Steuerung; ANW-Kontrolle über Firmware) 0 0101 (0101 == 5 -> RF300 Without Multitag)
+	param += resetLED ? "02" : "00";    // 00 == ERR-LED am SLG nicht zurücksetzen || 02 == ERR-LED am SLG zurücksetzen
+	param += "00";						// distance_limiting - Not used by RF300
+	param += "0001";					// Number of Allowed Tags == No Mulittag 
+	param += "00";					    // field_ON_control  - Not used by RF300 (00hex)
+	param += "01";						// field_ON_time // herstellerunabhängiger tag
 
 	node.push_back(XmlTree("param", param));
 

@@ -1,5 +1,5 @@
 
-//  Created by b_ndsh_h.
+// Created by b_ndsh_h
 
 #pragma once
 

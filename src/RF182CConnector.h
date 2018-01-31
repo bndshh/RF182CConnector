@@ -1,21 +1,14 @@
 
-//  Created by b_ndsh_h.
+// Created by b_ndsh_h
 
 #pragma once
 
 #include "CinderAsio.h"
-
-#include "RF182CHelper.h"
-#include "Options.h"
-#include "HasAssets.h"
-
 #include "TcpClient.h"
+#include "RF182CHelper.h"
 
 using namespace ci;
-using namespace ci::app;
 using namespace std;
-
-using namespace bUtil;
 
 class XMLTag
 {
@@ -29,10 +22,10 @@ public:
 
 typedef shared_ptr<class RF182CConnector> RF182CConnectorRef;
 
-class RF182CConnector : public enable_shared_from_this<RF182CConnector>, public HasAssets
+class RF182CConnector : public enable_shared_from_this<RF182CConnector>
 {
 public:
-	static RF182CConnectorRef create(asio::io_service &io, string host = OptionsSingleton::Instance()->RF182CIP(), int32_t port = OptionsSingleton::Instance()->RF182CPort());
+	static RF182CConnectorRef create(asio::io_service &io, string host, int32_t port);
 	virtual void connect();
 	virtual void close();
 	virtual void write(RF182CCommandStr commandStr);
@@ -58,6 +51,8 @@ protected:
 	virtual void onRead(ci::BufferRef buffer);
 	virtual void onWrite(size_t bytesTransferred);
 	virtual const bool handleErrorCode(const string &errorCode, const string &type);
+	virtual void setPositiveCallback(const std::function<void()> callback) { mPositiveFeedback = callback; };
+	virtual void setNegativeCallback(const std::function<void()> callback) { mNegativeFeedback = callback; };
 
 	bool mLog;
 	bool mConnected;
@@ -75,7 +70,7 @@ protected:
 
 	XMLTag firstTag(string response);
 
-	audio::VoiceRef mFeedbackSoundPositiv;
-	audio::VoiceRef mFeedbackSoundNegativ;
+	std::function<void()> mPositiveFeedback;
+	std::function<void()> mNegativeFeedback;
 };
 

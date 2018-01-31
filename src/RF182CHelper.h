@@ -1,4 +1,6 @@
 
+// Created by b_ndsh_h
+
 #pragma once
 
 #include "cinder/Xml.h"
@@ -14,20 +16,20 @@ typedef string RF182CCommandStr;
 class RF182CCommand
 {
 public:
-	RF182CCommand();
+	RF182CCommand() {};
 	
 	enum Type
 	{
-		none, // Command not defined
-		comDevSetConfig, // Optional: RF182C umprojektieren		
-		reset, // RF182C und Reader eines Kanals zurÃ¼cksetzen und parametrieren		     
-		writeTagData, // Schreiben auf Adresse des Tags     		
-		readTagData, // Lesen von Adresse des Tags	
-		initializeTag, // Tag initialisieren		
-		getReaderStatus, // Status der angeschlossenen Reader		
-		setAnt, // Antenne Ein-Aus	
-		heartbeat, // LeitungsÃ¼berwachung	
-		getTagStatus // Status des Tag
+		none,				// Command not defined
+		comDevSetConfig,	// Optional: RF182C umprojektieren		
+		reset,				// RF182C und Reader eines Kanals zurücksetzen und parametrieren		     
+		writeTagData,		// Schreiben auf Adresse des Tags     		
+		readTagData,		// Lesen von Adresse des Tags	
+		initializeTag,		// Tag initialisieren		
+		getReaderStatus,	// Status der angeschlossenen Reader		
+		setAnt,				// Antenne Ein-Aus	
+		heartbeat,			// Leitungsüberwachung	
+		getTagStatus		// Status des Tag
 	};
 
 	static string mReaderStatus[7];
@@ -60,6 +62,7 @@ public:
 	bool mLog;
 	virtual const string toString() = 0;
 	virtual void parse(const string &str) = 0;
+	virtual ~RF182CAnswer() = default;
 };
 
 class RF182CReply : public RF182CAnswer
@@ -74,7 +77,7 @@ public:
 	virtual const RF182CCommand::Type getCommandType() { return mCommandType; };
 	virtual const string getData() { return mData; };
 	const static bool fastCheck(string str) { return str.find(NAME) != string::npos; };
-	~RF182CReply() = default;
+	virtual ~RF182CReply() = default;
 
 protected:
 	const static string NAME;
@@ -94,7 +97,7 @@ public:
 	virtual const string getOrigin() { return mOrigin; };
 	virtual const int getTagCount() { return mTagCount; };
 	const static bool fastCheck(string str) { return str.find(NAME) != string::npos; };
-	~RF182CNotification() = default;
+	virtual ~RF182CNotification() = default;
 
 protected:
 	const static string NAME;
@@ -117,7 +120,7 @@ public:
 	virtual const long getDeviceTime() { return mDeviceTime; };
 	virtual const string getErrorcode() { return mErrorcode; };
 	const static bool fastCheck(string str) { return str.find(NAME) != string::npos; };
-	~RF182CAlarm() = default;
+	virtual ~RF182CAlarm() = default;
 
 protected:
 	const static string NAME;

@@ -1,5 +1,5 @@
 
-//  Created by b_ndsh_h.
+// Created by b_ndsh_h
 
 #include "RF182CConnector.h"
 
@@ -16,8 +16,8 @@ RF182CConnector::RF182CConnector(asio::io_service &io, string host, int32_t port
 	mClient->connectConnectEventHandler(&RF182CConnector::onConnect, this);
 	mClient->connectErrorEventHandler(&RF182CConnector::onError, this);
 
-	mFeedbackSoundPositiv = loadAudioFromAssets("Sounds/positiv_rfid_speichern.mp3");
-	mFeedbackSoundNegativ = loadAudioFromAssets("Sounds/negativ_rfid_speichern.mp3");
+	mPositiveFeedback = [] {};
+	mNegativeFeedback = [] {};
 }
 
 void RF182CConnector::connect()
@@ -117,7 +117,7 @@ void RF182CConnector::onRead(ci::BufferRef buffer)
 			}
 			else if (reply.getCommandType() == RF182CCommand::writeTagData)
 			{
-				fine ? mFeedbackSoundPositiv->start() : mFeedbackSoundNegativ->start();
+				fine ? mPositiveFeedback() : mNegativeFeedback();
 			}
 
 		}
