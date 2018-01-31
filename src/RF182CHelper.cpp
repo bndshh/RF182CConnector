@@ -1,7 +1,4 @@
 
-//  Created by Jan Bundschuh.
-//  Copyright 2016-2017 TRIAD Berlin Projektgesellschaft mbH. All rights reserved.
-
 #include "RF182CHelper.h"
 
 #include <iomanip>
@@ -72,7 +69,7 @@ string RF182CCommand::mReaderStatus[7] =
 	"02", // = MOBY U(SLG - Diagnose I, Funktionsaufrufe)
 	"03", // = MOBY U(SLG - Diagnose II, Fehlermeldungen)
 	"04", // = MOBY U(SLG - Diagnose III, identifizierte MDS)
-	"05", // = MOBY U(SLG - Diagnose IV, Kommunikationsg¸te)
+	"05", // = MOBY U(SLG - Diagnose IV, Kommunikationsg√ºte)
 	"06", // = RF300 Reader - Diganose
 	"07", // = RF600 Reader - Diagnose
 };
@@ -83,12 +80,12 @@ RF182CCommandStr RF182CCommand::resetCommand(const bool &resetLED)
 	auto node = XmlTree(AllTypesString().at(Type::reset), "");
 
 	string param = "00";      // standby - Not used by RF300
-	param += "25";      // Param == 001 (000 == Keine ANW-Kontroll, 001 == keine MDS-Steuerung; ANW-Kontrolle ¸ber Firmware) 0 0101 (0101 == 5 -> RF300 Without Multitag)
-	param += resetLED ? "02" : "00";      // 00 == ERR-LED am SLG nicht zur¸cksetzen || 02 == ERR-LED am SLG zur¸cksetzen
+	param += "25";      // Param == 001 (000 == Keine ANW-Kontroll, 001 == keine MDS-Steuerung; ANW-Kontrolle √ºber Firmware) 0 0101 (0101 == 5 -> RF300 Without Multitag)
+	param += resetLED ? "02" : "00";      // 00 == ERR-LED am SLG nicht zur√ºcksetzen || 02 == ERR-LED am SLG zur√ºcksetzen
 	param += "00";      // distance_limiting - Not used by RF300
 	param += "0001";    // Number of Allowed Tags == No Mulittag 
 	param += "00";      // field_ON_control  - Not used by RF300 (00hex)
-	param += "01";      // field_ON_time // herstellerunabh‰ngiger tag
+	param += "01";      // field_ON_time // herstellerunabh√§ngiger tag
 
 	node.push_back(XmlTree("param", param));
 
