@@ -1,6 +1,5 @@
 
-//  Created by Jan Bundschuh.
-//  Copyright 2016-2017 TRIAD Berlin Projektgesellschaft mbH. All rights reserved.
+//  Created by b_ndsh_h.
 
 #pragma once
 
