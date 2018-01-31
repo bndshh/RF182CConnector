@@ -2,12 +2,13 @@
 <cinder>
 <block
 	name="RF182CConnector"
-	id="org.b_ndsh_h.RFC182CConnector"
+	id="org.bndshh.RFC182CConnector"
 	author="b_ndsh_h"
 	license="MIT"
-	summary="A small Cinder-Block to interact with a Siemens RF182C modul."
+	summary="A small Cinder-Block to interact with a Siemens RF182C modul. Needs bantherewind's Cinder-Asio."
 	core="true"
 	>
+	<requires>asio.bantherewind.com</requires>
 	<sourcePattern>src/*.cpp</sourcePattern>
 	<headerPattern>src/*.h</headerPattern>
 	<includePath>src</includePath>

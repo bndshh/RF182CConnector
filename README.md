@@ -1,3 +1,3 @@
-A Cinder-Block to interact with a Siemens RF182C modul via TCP. 
+A small C++ modul on top of Cinder to interact with a siemens RF182C. 
 
-<b>b_ndsh_h</b> # 2017-2018
+# b_ndsh_h - 2017-2018
